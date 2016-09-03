@@ -142,7 +142,8 @@ module.exports = {
             var call = gameState.current_buy_in - gameState.players[gameState.in_action]['bet'],
                 minRaise = call + gameState.minimum_raise + player.stack / raise;
             console.log("CALL IS : ", call);
-            console.log("MinRaise : ", minRaise);
+            console.log("Raise : ", minRaise);
+            console.log("minraise : ", gameState.minimum_raise);
             console.log("Current By IN", gameState.current_buy_in);
             console.log("The fuck is this", gameState.players[gameState.in_action]['bet']);
             return minRaise > player.stack ? player.stack : minRaise ;
