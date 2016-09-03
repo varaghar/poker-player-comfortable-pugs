@@ -17,6 +17,8 @@ module.exports = {
     bet(game_state.current_buy_in);  
       
     
+      
+      var player = getMyPlayer();
   },
 
   showdown: function(game_state) {
@@ -24,14 +26,18 @@ module.exports = {
   },
     
  getMyCards: function(game_state) {
-    var players = game_state.players;
+   
+      var cards_down = game_state.community_cards;
+      var players = game_state.players;
+        
      var nrOfPlayers = players.size;
         for (var i=0; i<nrOfPlayers;i++) {
             if (player.name == 'Comfortable Pugs') {
                 return player.hole_cards;
             }
         }
-    },
+     
+   },
     getAllCards: function(game_state) {
         var myCards = getMyCards(game_state);
         var cards_down = game_state.community_cards;
@@ -56,4 +62,5 @@ module.exports = {
             }
         }
     }
+
 };
