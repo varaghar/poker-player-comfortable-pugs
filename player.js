@@ -8,8 +8,10 @@ module.exports = {
     console.log(game_state);
       
     var cards =  getMyCards(game_state);
+      
+      console.log(cards.length);
      
-    if (cards[0].rank === cards[1].rank) {
+   /* if (cards[0].rank === cards[1].rank) {
        bet(game_state.pot);
     } else {
        bet(game_state.current_buy_in);          
@@ -27,7 +29,7 @@ module.exports = {
       var cards_down = game_state.community_cards;
       var players = game_state.players;
         
-     var nrOfPlayers = players.size;
+     var nrOfPlayers = players.length;
         for (var i=0; i<nrOfPlayers;i++) {
             if (player.name == 'Comfortable Pugs') {
                 return player.hole_cards;
@@ -43,7 +45,7 @@ module.exports = {
         cards.push(myCards[1]);
         
         var cards = [];
-        var cardsDownSize = cards_down.size; 
+        var cardsDownSize = cards_down.length; 
          for (var i=0; i<cardsDownSize;i++) {
             cards.push(cards_down[i]);
         }
@@ -52,7 +54,7 @@ module.exports = {
     function getMyPlayer(game_state) {
               var players = game_state.players;
         
-     var nrOfPlayers = players.size;
+     var nrOfPlayers = players.length;
         for (var i=0; i<nrOfPlayers;i++) {
             if (player.name == 'Comfortable Pugs') {
                 return player;
