@@ -45,8 +45,16 @@ module.exports = {
             // OPENING HAND
             // The cards are equal
             myBet = 0;
-            if (x === y) {
-                if (x > 8) {
+            if (cardsDown.length === 0) {
+                if (x === y) {
+                    if (x > 8) {
+                        myBet = player.stack;
+                    }
+                }
+            }
+            if (cardsDown.length >= 3) {
+                var rank = getRanks(cardsDown, cards, ranks);
+                if (rank >= 2) {
                     myBet = player.stack;
                 }
             }
