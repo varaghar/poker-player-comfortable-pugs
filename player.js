@@ -30,8 +30,7 @@ module.exports = {
         x = trans[cards[0].rank],
         y = trans[cards[1].rank],
         c1 = cards[0].suit,
-        c2 = cards[1].suit,
-        allCards = getAllCards(game_state); 
+        c2 = cards[1].suit; 
     
     // OPENING HAND
     // The cards are equal
