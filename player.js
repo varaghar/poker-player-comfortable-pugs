@@ -210,7 +210,7 @@ module.exports = {
 
             for (var key in numbers) {
                 var pairs = 0;
-                if (numbers[key] > 2) {
+                if (numbers[key] > 1) {
                     pairs++;
                 }
 
