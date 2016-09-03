@@ -87,10 +87,14 @@ module.exports = {
                             myBet = bid(game_state, 4);
                             break;
                         case 1:
-                            myBet = call(game_state);
+                            if (x > 11) {
+                                myBet = bid(game_state, 10);
+                            } else {
+                                myBet = call(game_state);    
+                            }
                             break;
                         default:
-                           minRaise;
+                           myBet = minRaise(game_state);
                     }
 
                 }
