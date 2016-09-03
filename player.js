@@ -46,24 +46,24 @@ module.exports = {
             // The cards are equal
             if (cardsDown.length === 0) {
                 if (x === y) {
-                    myBet = bid(game_state.current_buy_in, player.stack / 4);
+                    myBet = bid(game_state, 4);
                     if (x > 10) {
                         myBet = player.stack;
                     }
                 } else if (c2 === c1) {
                     myBet = game_state.current_buy_in;
                     if (Math.abs(x - y) < 4) {
-                        myBet = bid(game_state.current_buy_in, player.stack / 4);
+                        myBet = bid(game_state, 4);
                     }
                 }
                 if (Math.abs(x - y) < 4) {
-                    myBet = bid(game_state.current_buy_in, game_state.minimum_raise) ;
+                    myBet = bid(game_state, 0) ;
                 }
 
-            } else if (cardsDown.length >= 3) {
+            } else if (cardsDown.length > 3) {
                 if (myBet > 0) {
                     var rank = getRanks(cardsDown, hand, ranks);
-                    myBet = bid(game_state.current_buy_in, player.stack / 4);
+                    myBet = bid(game_state, 0);
                     switch (rank) {
                         case 8:
                             myBet = player.stack;
@@ -84,17 +84,17 @@ module.exports = {
                             myBet = player.stack;
                             break;
                         case 2:
-                            myBet = bid(game_state.current_buy_in, player.stack / 3);
+                            myBet = bid(game_state, 4);
                             break;
                         case 1:
-                            myBet = bid(game_state.current_buy_in, player.stack / 5);
+                            myBet = bid(game_state, 0);
                             break;
                         default:
                             myBet = 0;
                     }
 
                 }
-            }
+            } 
 
             console.log(cards[0]);
             console.log(cards[1]);
@@ -133,8 +133,10 @@ module.exports = {
             }
         }
 
-        function bid(call, possible) {
-            return possible < call ? call : possible;
+        function bid(gameState, raise) {
+            var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet],
+                minRaise = call + player.stack / raise;
+            return minRaise > player.stack ? player.stack : minRaise ;
         }
 
         function getRanks(cardsDown, hand, ranks) {
