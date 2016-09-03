@@ -30,11 +30,12 @@ module.exports = {
         x = trans[cards[0].rank],
         y = trans[cards[1].rank],
         c1 = cards[0].suit,
-        c2 = cards[1].suit; 
+        c2 = cards[1].suit,
+        cardsDown = game_state.community_cards; 
     
     // OPENING HAND
     // The cards are equal
-    if (allCards.length === 2) {
+    if (cardsDown.length === 2) {
        if (x === y) {
             myBet = game_state.pot * 2;
           if ( x > 10) {
@@ -85,20 +86,7 @@ catch (ex)
         }
      
    };
- function getAllCards(game_state) {
-        var myCards = getMyCards(game_state);
-        var cards_down = game_state.community_cards;
-          var cards = [];
-        cards.push(myCards[0]);
-        cards.push(myCards[1]);
-        
-      
-        var cardsDownSize = cards_down.length; 
-         for (var i=0; i<cardsDownSize;i++) {
-            cards.push(cards_down[i]);
-        }
-        return cards;
-    };
+
     function getMyPlayer(game_state) {
               var players = game_state.players;
         
