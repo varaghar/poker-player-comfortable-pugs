@@ -56,7 +56,7 @@ module.exports = {
                         myBet = player.stack / 4;
                     }
                     
-                    if (c1 === c2 && (x + y > 17)) {
+                    if (c1 === c2 && (x + y > 17) && (x > 7 && x > 8)) {
                         myBet = player.stack / 4;
                     }
                 }
