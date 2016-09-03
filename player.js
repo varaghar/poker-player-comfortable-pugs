@@ -6,6 +6,8 @@ module.exports = {
   bet_request: function(game_state, bet) {
     bet(100);
       console.log(game_state);
+      
+    var cards =  getCards(game_state);
      
     
       
@@ -17,9 +19,17 @@ module.exports = {
 
   },
     
- getCards: function(game_state) {
+ getMyCards: function(game_state) {
+   
       var cards_down = game_state.community_cards;
-         // cards_in_hand = 
+      var players = game_state.players;
         
+     var nrOfPlayers = players.size;
+        for (var i=0; i<nrOfPlayers;i++) {
+            if (player.name == 'Comfortable Pugs') {
+                return player.hole_cards;
+            }
+        }
+     
     }
 };
