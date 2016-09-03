@@ -7,6 +7,9 @@ module.exports = {
     
     console.log(game_state);
       
+   try
+{ 
+      
     var cards =  getMyCards(game_state);
       
       console.log(cards.length);
@@ -18,6 +21,11 @@ module.exports = {
     }*/
     bet(game_state.current_buy_in);  
       
+}
+catch (ex)
+{
+    console.log("Caught exception: " + ex);
+}      
     
       
       var player = getMyPlayer();
