@@ -68,22 +68,22 @@ module.exports = {
                 myBet = call(game_state);
                 switch (rank) {
                     case 8:
-                        myBet = player.stack;
+                        myBet = player.stack -1;
                         break;
                     case 7:
-                        myBet = player.stack;
+                        myBet = player.stack -1 ;
                         break;
                     case 6:
-                        myBet = player.stack;
+                        myBet = player.stack -1 ;
                         break;
                     case 5:
-                        myBet = player.stack;
+                        myBet = player.stack - 1;
                         break;
                     case 4:
-                        myBet = player.stack;
+                        myBet = player.stack -1 ;
                         break;
                     case 3:
-                        myBet = player.stack;
+                        myBet = player.stack -1;
                         break;
                     case 2:
                         myBet = bid(game_state, 4);
