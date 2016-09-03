@@ -34,7 +34,7 @@ module.exports = {
     // The cards are equal
     if (x === y) {
         myBet = game_state.pot * 2;
-      if ( x >== 10) {
+      if ( x > 10) {
         myBet = player.stack;  
       }   
     }
