@@ -223,7 +223,7 @@ module.exports = {
                 }
 
                 if (pairs == 1) {
-                    return ranks["PAIRS"];
+                    return ranks["PAIR"];
                 }
 
                 if (pairs > 1) {
