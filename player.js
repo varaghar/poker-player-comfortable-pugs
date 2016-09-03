@@ -40,24 +40,30 @@ module.exports = {
                     "FULL_HOUSE": 6,
                     "FOUR_OF_A_KIND": 7,
                     "ROYAL_FLUSH": 8
-                };
+                },
+                otherPLayerbet = gameState.players[gameState.in_action]['bet'];
 
             // OPENING HAND
             // The cards are equal
             if (cardsDown.length === 0) {
                 if (x === y) {
                     myBet = bid(game_state, 4);
-                    if (x > 10) {
+                    if (x > 9) {
                         myBet = player.stack;
                     }
                 } else if (c2 === c1) {
-                    myBet = game_state.current_buy_in;
+                    if (otherPLayerbet < player.stack / 9) {
+                        myBet = call(game_state) ;    
+                    }
                     if (Math.abs(x - y) < 4) {
-                        myBet = bid(game_state, 4);
+                        myBet = bid(game_state, 10);
                     }
                 }
-                if (Math.abs(x - y) < 4) {
-                    myBet = call(game_state) ;
+                if (Math.abs(x - y) < 4 &&
+                    x + y > 13 ) {
+                    if (otherPLayerbet < player.stack / 9) {
+                        myBet = call(game_state) ;    
+                    }
                 }
 
             } else if (cardsDown.length >= 3) {
@@ -164,26 +170,26 @@ module.exports = {
             var cards = cardsDown.concat(hand),
                 cardsDownNr = cards.length,
                 numbers = {
-                    "1": 0,
-                    "2": 0,
-                    "3": 0,
-                    "4": 0,
-                    "5": 0,
-                    "6": 0,
-                    "7": 0,
-                    "8": 0,
-                    "9": 0,
+                    "1":  0,
+                    "2":  0,
+                    "3":  0,
+                    "4":  0,
+                    "5":  0,
+                    "6":  0,
+                    "7":  0,
+                    "8":  0,
+                    "9":  0,
                     "10": 0,
-                    "J": 0,
-                    "Q": 0,
-                    "K": 0,
-                    "A": 0,
+                    "J":  0,
+                    "Q":  0,
+                    "K":  0,
+                    "A":  0
                 },
                 color = {
                     "diamonds": 0,
-                    "spades": 0,
-                    "hearts": 0,
-                    "clubs": 0
+                    "spades":   0,
+                    "hearts":   0,
+                    "clubs":    0
                 },
                 card = null;
 
