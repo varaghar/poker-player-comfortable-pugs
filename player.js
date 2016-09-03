@@ -48,8 +48,8 @@ module.exports = {
             if (game_state.current_buy_in - game_state.players[game_state.in_action]['bet'] < player.stack / 4) {
                 if (cardsDown.length === 0) {
                     if (x === y) {
-                        if (x > 8) {
-                            myBet = player.stack;
+                        if (x > 7) {
+                            myBet = player.stack / 4;
                         }
                     }
                     if (x + y > 24) {
@@ -62,7 +62,7 @@ module.exports = {
                 }
                 if (cardsDown.length >= 3) {
                     var rank = getRanks(cardsDown, cards, ranks);
-                    if (rank >= 2) {
+                    if (rank >= 3) {
                         myBet = player.stack;
                     }
                     if (x + y > 24) {
