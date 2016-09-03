@@ -8,18 +8,21 @@ module.exports = {
    try
 { 
       
-    var cards =  getMyCards(game_state);
-     
+    var cards =  getMyCards(game_state),
+        player = getMyPlayer(game_state),
+        myBet = game_state.current_buy_in; 
    /* if (cards[0].rank === cards[1].rank) {
        bet(game_state.pot);
     } else {
        bet(game_state.current_buy_in);          
     }*/
-    var player = getMyPlayer(game_state);
+    
     console.log(cards[0]);
     console.log(cards[1]);
-    
-    bet(game_state.current_buy_in);  
+    if (cards[1].rank === cards[1].rank) {
+        myBet = game_state.current_buy_in * 2;  
+    }
+    bet(myBet);  
       
 }
 catch (ex)
