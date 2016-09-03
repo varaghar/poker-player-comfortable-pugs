@@ -60,44 +60,45 @@ module.exports = {
                     myBet = call(game_state) ;
                 }
 
-            } else if (cardsDown.length > 3) {
-                if (myBet > 0) {
-                    var rank = getRanks(cardsDown, cards, ranks);
-                    myBet = call(game_state);
-                    switch (rank) {
-                        case 8:
-                            myBet = player.stack;
-                            break;
-                        case 7:
-                            myBet = player.stack;
-                            break;
-                        case 6:
-                            myBet = player.stack;
-                            break;
-                        case 5:
-                            myBet = player.stack;
-                            break;
-                        case 4:
-                            myBet = player.stack;
-                            break;
-                        case 3:
-                            myBet = player.stack;
-                            break;
-                        case 2:
-                            myBet = bid(game_state, 4);
-                            break;
-                        case 1:
-                            if (x > 11) {
-                                myBet = bid(game_state, 10);
-                            } else {
-                                myBet = call(game_state);    
-                            }
-                            break;
-                        default:
-                           myBet = minRaise(game_state);
-                    }
-
+            } else if (cardsDown.length >= 3) {
+                var rank = getRanks(cardsDown, cards, ranks);
+                console.log('RANK: ', rank);
+                console.log('CARDS: ', cards);
+                console.log('CARDSDown: ', cardsDown);
+                myBet = call(game_state);
+                switch (rank) {
+                    case 8:
+                        myBet = player.stack;
+                        break;
+                    case 7:
+                        myBet = player.stack;
+                        break;
+                    case 6:
+                        myBet = player.stack;
+                        break;
+                    case 5:
+                        myBet = player.stack;
+                        break;
+                    case 4:
+                        myBet = player.stack;
+                        break;
+                    case 3:
+                        myBet = player.stack;
+                        break;
+                    case 2:
+                        myBet = bid(game_state, 4);
+                        break;
+                    case 1:
+                        if (x > 11) {
+                            myBet = bid(game_state, 10);
+                        } else {
+                            myBet = call(game_state);    
+                        }
+                        break;
+                    default:
+                       myBet = minRaise(game_state);
                 }
+
             } 
 
             console.log(cards[0]);
