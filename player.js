@@ -157,7 +157,7 @@ module.exports = {
 
         function getRanks(cardsDown, hand, ranks) {
             var cards = cardsDown.concat(hand),
-                cardsDownNr = cardsDown.length,
+                cardsDownNr = cards.length,
                 numbers = {
                     "1": 0,
                     "2": 0,
