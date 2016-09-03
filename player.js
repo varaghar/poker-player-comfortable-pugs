@@ -7,15 +7,16 @@ module.exports = {
     
     console.log(game_state);
       
-    var cards =  getCards(game_state);
+    var cards =  getMyCards(game_state);
      
     if (cards[0].rank === cards[1].rank) {
        bet(game_state.pot)
-       return;
+    } else {
+       bet(game_state.current_buy_in);          
     }
       
       
-    bet(game_state.current_buy_in);  
+    
   },
 
   showdown: function(game_state) {
