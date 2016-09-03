@@ -47,7 +47,7 @@ module.exports = {
                myBet = game_state.pot * 2;
            }   
         }
-        if (Math.abs(x-y) > 3) {
+        if (Math.abs(x-y) < 4) {
            myBet = game_state.minimum_raise;
         }  
         
