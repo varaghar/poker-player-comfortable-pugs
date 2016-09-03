@@ -89,11 +89,11 @@ catch (ex)
  function getAllCards(game_state) {
         var myCards = getMyCards(game_state);
         var cards_down = game_state.community_cards;
-        
+          var cards = [];
         cards.push(myCards[0]);
         cards.push(myCards[1]);
         
-        var cards = [];
+      
         var cardsDownSize = cards_down.length; 
          for (var i=0; i<cardsDownSize;i++) {
             cards.push(cards_down[i]);
