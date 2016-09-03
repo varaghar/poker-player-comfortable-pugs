@@ -51,10 +51,16 @@ module.exports = {
                         myBet = player.stack;
                     }
                 }
+                if (x + y > 24) {
+                    myBet = player.stack / 4;
+                }
             }
             if (cardsDown.length >= 3) {
                 var rank = getRanks(cardsDown, cards, ranks);
                 if (rank >= 2) {
+                    myBet = player.stack;
+                }
+                if (x + y > 24) {
                     myBet = player.stack;
                 }
             }
