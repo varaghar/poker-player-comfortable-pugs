@@ -57,13 +57,13 @@ module.exports = {
                     }
                 }
                 if (Math.abs(x - y) < 4) {
-                    myBet = bid(game_state, 0) ;
+                    myBet = call(game_state) ;
                 }
 
             } else if (cardsDown.length > 3) {
                 if (myBet > 0) {
                     var rank = getRanks(cardsDown, hand, ranks);
-                    myBet = bid(game_state, 0);
+                    myBet = call(game_state);
                     switch (rank) {
                         case 8:
                             myBet = player.stack;
@@ -87,10 +87,10 @@ module.exports = {
                             myBet = bid(game_state, 4);
                             break;
                         case 1:
-                            myBet = bid(game_state, 0);
+                            myBet = call(game_state);
                             break;
                         default:
-                            myBet = 0;
+                           minRaise;
                     }
 
                 }
@@ -135,8 +135,19 @@ module.exports = {
 
         function bid(gameState, raise) {
             var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet],
-                minRaise = call + player.stack / raise;
+                minRaise = call + gameState.minimum_raise + player.stack / raise;
             return minRaise > player.stack ? player.stack : minRaise ;
+        }
+        
+        function minRaise(gameState) {
+            var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet],
+                minRaise = call + gameState.minimum_raise;
+            return minRaise;
+        }
+        
+        function call(gameState) {
+            var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet];
+            return call;
         }
 
         function getRanks(cardsDown, hand, ranks) {
