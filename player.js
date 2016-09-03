@@ -11,8 +11,6 @@ module.exports = {
 { 
       
     var cards =  getMyCards(game_state);
-      
-      console.log(cards.length);
      
    /* if (cards[0].rank === cards[1].rank) {
        bet(game_state.pot);
@@ -39,7 +37,7 @@ catch (ex)
         
      var nrOfPlayers = players.length;
         for (var i=0; i<nrOfPlayers;i++) {
-            if (player.name == 'Comfortable Pugs') {
+            if (players[i].name == 'Comfortable Pugs') {
                 return player.hole_cards;
             }
         }
