@@ -16,6 +16,8 @@ module.exports = {
        bet(game_state.current_buy_in);          
     }*/
     var player = getMyPlayer(game_state);
+    console.log(cards[0]);
+    console.log(cards[1]);
     
     bet(game_state.current_buy_in);  
       
