@@ -35,21 +35,21 @@ module.exports = {
             // The cards are equal
             if (cardsDown.length === 0) {
                 if (x === y) {
-                    myBet = game_state.pot * 2;
+                    myBet = bid(game_state.current_buy_in, player.stack / 4);
                     if (x > 10) {
                         myBet = player.stack;
                     }
                 } else if (c2 === c1) {
                     myBet = game_state.current_buy_in;
                     if (Math.abs(x - y) < 4) {
-                        myBet = game_state.pot * 2;
+                        myBet =  bid(game_state.current_buy_in, player.stack / 4);
                     }
                 }
                 if (Math.abs(x - y) < 4) {
                     myBet = game_state.minimum_raise;
                 }
 
-            } else {
+            } else if (cardsDown.length === 3) {
                 if (myBet > 0) {
                     myBet = game_state.current_buy_in;
                 }
@@ -90,6 +90,10 @@ module.exports = {
                     return players[i];
                 }
             }
+        }
+        
+        function bid(call, possible) {
+            return possible < call ? call : possible;
         }
 
     },
