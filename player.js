@@ -4,15 +4,18 @@ module.exports = {
   VERSION: "Default JavaScript folding player",
 
   bet_request: function(game_state, bet) {
-    bet(100);
-      console.log(game_state);
+    
+    console.log(game_state);
       
     var cards =  getCards(game_state);
      
-    
+    if (cards[0].rank === cards[1].rank) {
+       bet(game_state.pot)
+       return;
+    }
       
       
-      
+    bet(game_state.current_buy_in);  
   },
 
   showdown: function(game_state) {
