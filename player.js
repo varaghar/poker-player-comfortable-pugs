@@ -15,6 +15,8 @@ module.exports = {
     } else {
        bet(game_state.current_buy_in);          
     }*/
+    var player = getMyPlayer(game_state);
+    
     bet(game_state.current_buy_in);  
       
 }
@@ -24,7 +26,7 @@ catch (ex)
 }      
     
       
-      var player = getMyPlayer();
+
       
       
           
@@ -60,8 +62,8 @@ catch (ex)
         
      var nrOfPlayers = players.length;
         for (var i=0; i<nrOfPlayers;i++) {
-            if (player.name == 'Comfortable Pugs') {
-                return player;
+            if (players[i].name == 'Comfortable Pugs') {
+                return players[i];
             }
         }
     }
