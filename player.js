@@ -45,7 +45,7 @@ module.exports = {
             // OPENING HAND
             // The cards are equal
             myBet = 0;
-            if (gameState.current_buy_in - gameState.players[gameState.in_action]['bet'] < player.stack / 10 ) {
+            if (game_state.current_buy_in - game_state.players[game_state.in_action]['bet'] < player.stack / 10 ) {
                 if (cardsDown.length === 0) {
                     if (x === y) {
                         if (x > 8) {
