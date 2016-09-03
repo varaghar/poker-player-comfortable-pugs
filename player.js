@@ -212,29 +212,27 @@ module.exports = {
                     threeOfAKind = true;
                 }
             }
-
+            var pairs = 0;
             for (var key in numbers) {
-                var pairs = 0;
                 if (numbers[key] > 1) {
                     pairs++;
                 }
-
-                if (threeOfAKind) {
-                    if (pairs > 1) {
-                        return ranks["FULL_HOUSE"];
-                    }
-
-                    return ranks["THREE_OF_A_KIND"];
-                }
-
-                if (pairs == 1) {
-                    return ranks["PAIR"];
-                }
-
-                if (pairs > 1) {
-                    return ranks["TWO_PAIRS"];
-                }
             }
+            if (threeOfAKind) {
+                if (pairs > 1) {
+                    return ranks["FULL_HOUSE"];
+                }
+
+                return ranks["THREE_OF_A_KIND"];
+            }
+
+            if (pairs > 1) {
+                return ranks["TWO_PAIRS"];
+            }
+            if (pairs == 1) {
+                return ranks["PAIR"];
+            }
+
             return 0;
         }
 
