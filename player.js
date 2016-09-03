@@ -15,9 +15,9 @@ module.exports = {
 
   showdown: function(game_state) {
 
-  }
+  },
     
-    function getCards(game_state) {
+ getCards: function(game_state) {
       var cards_down = game_state.community_cards;
          // cards_in_hand = 
         
