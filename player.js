@@ -40,9 +40,14 @@ module.exports = {
         myBet = player.stack;  
       }   
     } else if (c2 === c1) {
-       myBet = game_state.current_buy_in; 
+       myBet = game_state.current_buy_in;
+       if (abs(x-y) < 4) {
+           myBet = game_state.pot * 2;
+       }   
     }
-    
+    if (abs(x-y) > 3) {
+       myBet = game_state.minimum_raise;
+    }  
     console.log(cards[0]);
     console.log(cards[1]);
     console.log("My bet is : " + myBet);
