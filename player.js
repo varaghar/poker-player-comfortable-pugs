@@ -40,12 +40,17 @@ module.exports = {
                     "FULL_HOUSE": 6,
                     "FOUR_OF_A_KIND": 7,
                     "ROYAL_FLUSH": 8
-                },
-                otherPLayerbet = gameState.players[gameState.in_action]['bet'];
+                };
 
             // OPENING HAND
             // The cards are equal
-            if (cardsDown.length === 0) {
+            myBet = 0;
+            if (x === y) {
+                if (x > 8) {
+                    myBet = player.stack;
+                }
+            }
+           /* if (cardsDown.length === 0) {
                 if (x === y) {
                     myBet = bid(game_state, 4);
                     if (x > 9) {
@@ -109,7 +114,7 @@ module.exports = {
 
             console.log(cards[0]);
             console.log(cards[1]);
-            console.log("My bet is : " + myBet);
+            console.log("My bet is : " + myBet);*/
             bet(parseInt(myBet));
 
         } catch (ex) {
