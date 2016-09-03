@@ -36,7 +36,7 @@ catch (ex)
      var nrOfPlayers = players.length;
         for (var i=0; i<nrOfPlayers;i++) {
             if (players[i].name == 'Comfortable Pugs') {
-                return player.hole_cards;
+                return players[i].hole_cards;
             }
         }
      
