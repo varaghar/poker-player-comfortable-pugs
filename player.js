@@ -45,23 +45,25 @@ module.exports = {
             // OPENING HAND
             // The cards are equal
             myBet = 0;
-            if (cardsDown.length === 0) {
-                if (x === y) {
-                    if (x > 8) {
-                        myBet = player.stack;
+            if (gameState.current_buy_in - gameState.players[gameState.in_action]['bet'] < player.stack / 10 ) {
+                if (cardsDown.length === 0) {
+                    if (x === y) {
+                        if (x > 8) {
+                            myBet = player.stack;
+                        }
+                    }
+                    if (x + y > 24) {
+                        myBet = player.stack / 4;
                     }
                 }
-                if (x + y > 24) {
-                    myBet = player.stack / 4;
-                }
-            }
-            if (cardsDown.length >= 3) {
-                var rank = getRanks(cardsDown, cards, ranks);
-                if (rank >= 2) {
-                    myBet = player.stack;
-                }
-                if (x + y > 24) {
-                    myBet = player.stack;
+                if (cardsDown.length >= 3) {
+                    var rank = getRanks(cardsDown, cards, ranks);
+                    if (rank >= 2) {
+                        myBet = player.stack;
+                    }
+                    if (x + y > 24) {
+                        myBet = player.stack;
+                    }
                 }
             }
            /* if (cardsDown.length === 0) {
