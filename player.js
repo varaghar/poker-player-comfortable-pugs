@@ -60,7 +60,7 @@ module.exports = {
     console.log(cards[0]);
     console.log(cards[1]);
     console.log("My bet is : " + myBet);
-    bet(myBet);  
+    bet(parseInt(myBet));  
       
 }
 catch (ex)
