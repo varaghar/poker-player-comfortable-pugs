@@ -8,7 +8,7 @@ module.exports = {
 
             var cards = getMyCards(game_state),
                 player = getMyPlayer(game_state),
-                myBet = 0,
+                myBet = 1,
                 trans = {
                     "1": 1,
                     "2": 2,
