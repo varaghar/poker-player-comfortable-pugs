@@ -199,7 +199,8 @@ module.exports = {
                     return ranks["FLUSH"];
                 }
             }
-
+             console.log("Numbers ",numbers);
+            console.log("Colors ",color);
             var threeOfAKind = false;
             for (var key in numbers) {
                 if (numbers[key] == 3) {
