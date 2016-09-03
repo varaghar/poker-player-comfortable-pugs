@@ -10,38 +10,18 @@ module.exports = {
       
     var cards =  getMyCards(game_state),
         player = getMyPlayer(game_state),
-        myBet = 0,
-        trans = {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 7,
-            "8": 8,
-            "9": 9,
-            "10": 10,
-            "J": 11,
-            "Q": 12,
-            "K": 13,
-            "A": 14
-        },
-        x = trans(cards[0].rank),
-        y = trans(cards[1].rank); 
-    
-    // OPENING HAND
-    // The cards are equal
-    if (x === y) {
-        myBet = game_state.pot * 2;
-      if ( x >== 10) {
-        myBet = player.stack;  
-      }   
-    }
+        myBet = game_state.current_buy_in; 
+   /* if (cards[0].rank === cards[1].rank) {
+       bet(game_state.pot);
+    } else {
+       bet(game_state.current_buy_in);          
+    }*/
     
     console.log(cards[0]);
     console.log(cards[1]);
-    console.log("My bet is : " + myBet);
+    if (cards[1].rank === cards[1].rank) {
+        myBet = game_state.current_buy_in * 2;  
+    }
     bet(myBet);  
       
 }
