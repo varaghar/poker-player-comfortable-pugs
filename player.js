@@ -62,7 +62,7 @@ module.exports = {
 
             } else if (cardsDown.length > 3) {
                 if (myBet > 0) {
-                    var rank = getRanks(cardsDown, hand, ranks);
+                    var rank = getRanks(cardsDown, cards, ranks);
                     myBet = call(game_state);
                     switch (rank) {
                         case 8:
