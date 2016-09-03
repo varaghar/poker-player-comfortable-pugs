@@ -30,24 +30,31 @@ module.exports = {
         x = trans[cards[0].rank],
         y = trans[cards[1].rank],
         c1 = cards[0].suit,
-        c2 = cards[1].suit; 
+        c2 = cards[1].suit,
+        allCards = getAllCards(game_state); 
     
     // OPENING HAND
     // The cards are equal
-    if (x === y) {
-        myBet = game_state.pot * 2;
-      if ( x > 10) {
-        myBet = player.stack;  
-      }   
-    } else if (c2 === c1) {
-       myBet = game_state.current_buy_in;
-       if (abs(x-y) < 4) {
-           myBet = game_state.pot * 2;
-       }   
+    if (allCards.length === 2) {
+       if (x === y) {
+            myBet = game_state.pot * 2;
+          if ( x > 10) {
+            myBet = player.stack;  
+          }   
+        } else if (c2 === c1) {
+           myBet = game_state.current_buy_in;
+           if (Math.abs(x-y) < 4) {
+               myBet = game_state.pot * 2;
+           }   
+        }
+        if (Math.abs(x-y) > 3) {
+           myBet = game_state.minimum_raise;
+        }  
+        
+    } else {
+        if (myBet)
     }
-    if (abs(x-y) > 3) {
-       myBet = game_state.minimum_raise;
-    }  
+   
     console.log(cards[0]);
     console.log(cards[1]);
     console.log("My bet is : " + myBet);
