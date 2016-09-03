@@ -52,8 +52,8 @@ module.exports = {
         }  
         
     } else {
-        if (myBet) {
-            
+        if (myBet > 0) {
+            myBet = game_state.current_buy_in;
         }
     }
    
