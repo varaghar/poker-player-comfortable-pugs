@@ -45,7 +45,7 @@ module.exports = {
             // OPENING HAND
             // The cards are equal
             myBet = 0;
-            if (game_state.current_buy_in - game_state.players[game_state.in_action]['bet'] < player.stack / 10 ) {
+            if (game_state.current_buy_in - game_state.players[game_state.in_action]['bet'] < player.stack / 4) {
                 if (cardsDown.length === 0) {
                     if (x === y) {
                         if (x > 8) {
@@ -53,6 +53,10 @@ module.exports = {
                         }
                     }
                     if (x + y > 24) {
+                        myBet = player.stack / 4;
+                    }
+                    
+                    if (c1 === c2 && (x + y > 17)) {
                         myBet = player.stack / 4;
                     }
                 }
@@ -64,6 +68,7 @@ module.exports = {
                     if (x + y > 24) {
                         myBet = player.stack;
                     }
+                    
                 }
             }
            /* if (cardsDown.length === 0) {
