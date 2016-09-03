@@ -7,7 +7,7 @@ module.exports = {
     
     console.log(game_state);
       
-    /*var cards =  getMyCards(game_state);
+    var cards =  getMyCards(game_state);
      
     if (cards[0].rank === cards[1].rank) {
        bet(game_state.pot);
@@ -19,13 +19,10 @@ module.exports = {
     
       
       var player = getMyPlayer();
-  },
-
-  showdown: function(game_state) {
-
-  },
-    
- getMyCards: function(game_state) {
+      
+      
+          
+  function getMyCards(game_state) {
    
       var cards_down = game_state.community_cards;
       var players = game_state.players;
@@ -37,8 +34,8 @@ module.exports = {
             }
         }
      
-   },
-    getAllCards: function(game_state) {
+   };
+ function getAllCards(game_state) {
         var myCards = getMyCards(game_state);
         var cards_down = game_state.community_cards;
         
@@ -51,8 +48,8 @@ module.exports = {
             cards.push(cards_down[i]);
         }
         return cards;
-    },
-    getMyPlayer: function(game_state) {
+    };
+    function getMyPlayer(game_state) {
               var players = game_state.players;
         
      var nrOfPlayers = players.size;
@@ -62,5 +59,11 @@ module.exports = {
             }
         }
     }
+
+  },
+
+  showdown: function(game_state) {
+
+  },
 
 };
