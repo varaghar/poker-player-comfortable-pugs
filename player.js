@@ -57,10 +57,10 @@ module.exports = {
                     }
                 }
                 if (Math.abs(x - y) < 4) {
-                    myBet = game_state.minimum_raise;
+                    myBet = bid(game_state.current_buy_in, game_state.minimum_raise) ;
                 }
 
-            } else if (cardsDown.length === 3) {
+            } else if (cardsDown.length >= 3) {
                 if (myBet > 0) {
                     var rank = getRanks(cardsDown, hand, ranks);
                     myBet = bid(game_state.current_buy_in, player.stack / 4);
