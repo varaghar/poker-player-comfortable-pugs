@@ -52,7 +52,9 @@ module.exports = {
         }  
         
     } else {
-        if (myBet)
+        if (myBet) {
+            
+        }
     }
    
     console.log(cards[0]);
