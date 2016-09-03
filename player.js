@@ -134,19 +134,19 @@ module.exports = {
         }
 
         function bid(gameState, raise) {
-            var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet],
+            var call = gameState.current_buy_in - gameState.players[gameState.in_action]['bet'],
                 minRaise = call + gameState.minimum_raise + player.stack / raise;
             return minRaise > player.stack ? player.stack : minRaise ;
         }
         
         function minRaise(gameState) {
-            var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet],
+            var call = gameState.current_buy_in - gameState.players[gameState.in_action]['bet'],
                 minRaise = call + gameState.minimum_raise;
             return minRaise;
         }
         
         function call(gameState) {
-            var call = gameState.current_buy_in - gameState.players[gameState.in_action][bet];
+            var call = gameState.current_buy_in - gameState.players[gameState.in_action]['bet'];
             return call;
         }
 
