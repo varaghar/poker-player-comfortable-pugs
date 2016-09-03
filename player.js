@@ -27,8 +27,10 @@ module.exports = {
             "K": 13,
             "A": 14
         },
-        x = trans(cards[0].rank),
-        y = trans(cards[1].rank); 
+        x = trans[cards[0].rank],
+        y = trans[cards[1].rank],
+        c1 = cards[0].suit,
+        c2 = cards[1].suit; 
     
     // OPENING HAND
     // The cards are equal
@@ -37,6 +39,8 @@ module.exports = {
       if ( x > 10) {
         myBet = player.stack;  
       }   
+    } else if (c2 === c1) {
+       myBet = game_state.current_buy_in; 
     }
     
     console.log(cards[0]);
